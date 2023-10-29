@@ -1,0 +1,5 @@
+{% if widget.value %}
+<div {% include "django/forms/widgets/attrs.html" %}>
+    {{widget.value|safe}}
+</div>
+{% endif %}
