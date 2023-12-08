@@ -26,22 +26,14 @@ from django.utils.translation import gettext_lazy as _
 
 class SecurityQuestionWidget(widgets.MultiWidget):
     """
-    A widget that splits graduation date as year and month.
-
-    This also serves as an example of a Widget that has more than one HTML
-    element and hence implements value_from_datadict.
+    A widget that asks security questions and 2 verification answers.
     """
 
     template_name = 'widgets/security_question.html'
 
-    def __init__(self, attrs=None, dt=None, mode=0):
-        # bits of python to create days, months, years
-        # example below, the rest snipped for neatness.
-        year_digits = [2003, 2004, 2005]
-        years = [(year, year) for year in year_digits]
-
+    def __init__(self, attrs=None, questions=[], mode=0):
         _widgets = (
-            widgets.Select(attrs=attrs, choices=years), 
+            widgets.Select(attrs=attrs, choices=questions), 
             widgets.PasswordInput(attrs=attrs),
             widgets.PasswordInput(attrs=attrs),
         )
