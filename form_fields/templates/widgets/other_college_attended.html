@@ -3,7 +3,7 @@
 
 <div class="ml-3 mt-3">
     <div class="row">
-        <div class="col-6">
+        <div class="col-4">
             <label for="id_other_college_attended_1_0" class="">
                 Name of College/University </label>
             <div>
@@ -12,16 +12,36 @@
         </div>
         <div class="col-3">
             <label for="id_other_college_attended_1_0" class="">
-                Attended From - Until</label>
+                Attended From Month</label>
             <div>
                 {% include widget.subwidgets.1.template_name with widget=widget.subwidgets.1 %}
             </div>
+            <br>
+            <label for="id_other_college_attended_1_0" class="">
+                Attended Until Month</label>
+            <div>
+                {% include widget.subwidgets.3.template_name with widget=widget.subwidgets.3 %}
+            </div>
         </div>
         <div class="col-3">
+            
+            <label for="id_other_college_attended_1_0" class="">
+                Attended From Year</label>
+            <div>
+                {% include widget.subwidgets.2.template_name with widget=widget.subwidgets.2 %}
+            </div>
+            <br>
+            <label for="id_other_college_attended_1_0" class="">
+                Attended Until Year</label>
+            <div>
+                {% include widget.subwidgets.4.template_name with widget=widget.subwidgets.4 %}
+            </div>
+        </div>
+        <div class="col-2">
             <label for="id_other_college_attended_1_0" class="">
                 Did you graduate from there?</label>
             <div>
-                {% include widget.subwidgets.2.template_name with widget=widget.subwidgets.2 %}
+                {% include widget.subwidgets.5.template_name with widget=widget.subwidgets.5 %}
             </div>
         </div>
     </div>
