@@ -49,6 +49,8 @@ class GraduationMonthYearWidget(widgets.SelectDateWidget):
             self.years = years
         else:
             this_year = datetime.date.today().year
+            if datetime.date.today().month >= 5:
+                this_year += 1
             self.years = range(this_year, this_year + 4)
 
         super().__init__(attrs, years, months, empty_label)
