@@ -10,16 +10,13 @@ from django.forms.widgets import Select
 
 from django.forms.utils import to_current_timezone
 from django.templatetags.static import static
-from django.utils import datetime_safe, formats
+from django.utils import formats
 from django.utils.datastructures import OrderedSet
 from django.utils.dates import MONTHS
 from django.utils.formats import get_format
 from django.utils.html import format_html, html_safe
 from django.utils.regex_helper import _lazy_re_compile
 from django.utils.safestring import mark_safe
-from django.utils.topological_sort import (
-    CyclicDependencyError, stable_topological_sort,
-)
 from django.utils.translation import gettext_lazy as _
 
 
@@ -116,6 +113,5 @@ class GraduationMonthYearWidget(widgets.SelectDateWidget):
                 # Return pseudo-ISO dates with zeros for any unselected values,
                 # e.g. '2017-0-23'.
                 return '%s-%s-%s' % (y or 0, m or 0, d or 0)
-            date_value = datetime_safe.new_date(date_value)
             return date_value.strftime(input_format)
         return data.get(name)
