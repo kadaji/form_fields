@@ -10,7 +10,7 @@ from django.forms.widgets import Select
 
 from django.forms.utils import to_current_timezone
 from django.templatetags.static import static
-from django.utils import datetime_safe, formats
+from django.utils import formats
 from django.utils.datastructures import OrderedSet
 from django import forms
 from django.utils.dates import MONTHS
@@ -40,46 +40,6 @@ class SecurityQuestionWidget(widgets.MultiWidget):
 
         super().__init__(_widgets, attrs)
 
-    # def format_value(self, value):
-    #     """
-    #     Return a value as it should appear when rendered in a template.
-    #     """
-    #     print(value)
-    #     return value
-    #     if value == '' or value is None:
-    #         return None
-    #     if self.is_localized:
-    #         return formats.localize_input(value)
-    #     return str(value)
-
-    # def value_from_datadict(self, data, files, name):
-    #     question = data.get("%s_0" % name)
-    #     answer = data.get('%s_1' % name)
-    #     confirm_answer = data.get('%s_2' % name)
-
-    #     return 'test'
-    #     return [question, answer, confirm_answer]
-        
-        # y = data.get(self.year_field % name)
-        # m = data.get(self.month_field % name)
-        # d = data.get(self.day_field % name)
-        # if y == m == d == '':
-        #     return None
-        # if y is not None and m is not None and d is not None:
-        #     if settings.USE_L10N:
-        #         input_format = get_format('DATE_INPUT_FORMATS')[0]
-        #         try:
-        #             date_value = datetime.date(int(y), int(m), int(d))
-        #         except ValueError:
-        #             pass
-        #         else:
-        #             date_value = datetime_safe.new_date(date_value)
-        #             return date_value.strftime(input_format)
-        #     # Return pseudo-ISO dates with zeros for any unselected values,
-        #     # e.g. '2017-0-23'.
-        #     return '%s-%s-%s' % (y or 0, m or 0, d or 0)
-        # return data.get(name)
-        
     def decompress(self, value):
         if value:
             print(value)

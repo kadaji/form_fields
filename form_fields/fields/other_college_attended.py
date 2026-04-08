@@ -10,7 +10,7 @@ from django.forms.widgets import Select
 
 from django.forms.utils import to_current_timezone
 from django.templatetags.static import static
-from django.utils import datetime_safe, formats
+from django.utils import formats
 from django.utils.datastructures import OrderedSet
 from django import forms
 from django.utils.dates import MONTHS
