@@ -18,9 +18,6 @@ from django.utils.formats import get_format
 from django.utils.html import format_html, html_safe
 from django.utils.regex_helper import _lazy_re_compile
 from django.utils.safestring import mark_safe
-from django.utils.topological_sort import (
-    CyclicDependencyError, stable_topological_sort,
-)
 from django.utils.translation import gettext_lazy as _
 
 
@@ -42,7 +39,6 @@ class SecurityQuestionWidget(widgets.MultiWidget):
 
     def decompress(self, value):
         if value:
-            print(value)
             return ['123']
         return [None, None, None]
 
