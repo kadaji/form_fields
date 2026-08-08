@@ -50,7 +50,13 @@ class GraduationMonthYearWidget(widgets.SelectDateWidget):
                 this_year += 1
             self.years = range(this_year, this_year + 4)
 
-        super().__init__(attrs, years, months, empty_label)
+        # Pass the range we just computed, not the caller's original argument.
+        # SelectDateWidget assigns whatever it receives to self.years, so
+        # forwarding `years` (None, whenever the caller relied on the default)
+        # threw the four-year range away and substituted the stock ten-year
+        # one. Only four graduation years map to a grade level, so the extra
+        # six let a student pick a year no grade can be derived from.
+        super().__init__(attrs, self.years, months, empty_label)
 
     def format_value(self, value):
         """

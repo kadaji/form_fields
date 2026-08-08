@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "form_fields"
-version = "0.0.1"
+version = "2026.1.0"
 authors = [
   { name="Avinash Kadaji", email="kadaji@gmail.com" },
 ]
